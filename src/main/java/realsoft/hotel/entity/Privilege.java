@@ -1,6 +1,18 @@
 package realsoft.hotel.entity;
 
-public class Privilege {
-    Long id;
-    String name;
+
+import lombok.*;
+import org.springframework.data.annotation.Id;
+
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+public class  Privilege {
+    @Id
+    private Long id;
+    private String name;
+
+
+
 }

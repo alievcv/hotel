@@ -1,23 +1,21 @@
 package realsoft.hotel.service;
 
 import org.springframework.http.ResponseEntity;
-import realsoft.hotel.dto.RoomDto;
-import realsoft.hotel.entity.Type;
+import realsoft.hotel.dto.RoomDTO;
+import realsoft.hotel.dto.RoomDTOForAdding;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface RoomService {
 
-    ResponseEntity<List<RoomDto>> getAllRooms();
+    ResponseEntity<List<RoomDTO>> getAllRooms();
 
-    ResponseEntity<RoomDto> createRoom(RoomDto roomDto);
+    ResponseEntity<RoomDTO> getRoomById(Long id);
 
-    ResponseEntity<RoomDto> updateRoom(Long roomId, RoomDto roomDto);
 
-    ResponseEntity<RoomDto> deleteRoom(Long roomId);
+    ResponseEntity<String> createRoom(RoomDTOForAdding roomDTOForAdding);
 
-    ResponseEntity<RoomDto> getRoomsByFilter(Optional<Type> type);
 
-    ResponseEntity<RoomDto> getAvailableRooms();
+    ResponseEntity<String> deleteRoom(Long roomId);
+
 }

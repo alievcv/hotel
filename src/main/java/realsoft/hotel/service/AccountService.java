@@ -1,21 +1,34 @@
 package realsoft.hotel.service;
 
 import org.springframework.http.ResponseEntity;
-import realsoft.hotel.dto.AccountDto;
+import realsoft.hotel.dto.AccountDTO;
+import realsoft.hotel.dto.AccountDTOForAdding;
+import realsoft.hotel.dto.AccountDTOForUpdating;
+import realsoft.hotel.dto.RoomDTO;
+
 import java.util.List;
 public interface AccountService {
 
-    ResponseEntity<List<AccountDto>> getAllAccounts();
+    ResponseEntity<List<AccountDTOForAdding>> getAllAccounts();
+    ResponseEntity<List<AccountDTO>> getAllAccountsWithRoom();
+    ResponseEntity<AccountDTO> getAccountById(Long id);
 
-    ResponseEntity<AccountDto> addAccount(AccountDto accountDto);
+    ResponseEntity<List<RoomDTO>> getCurrentUsersRooms();
 
-    ResponseEntity<AccountDto> updateAccount(Long id, AccountDto accountDto);
-
-    ResponseEntity<AccountDto> deleteAccount(Long id);
-
-
+    ResponseEntity<String> addAccount(AccountDTOForAdding accountDTOForAdding);
 
 
+    ResponseEntity<String> updateAccount(AccountDTOForUpdating accountDTO);
+
+    ResponseEntity<String> deleteAccount(Long id);
+
+    ResponseEntity<List<RoomDTO>> getAllAvailableRooms();
+
+    ResponseEntity<String> deleteAccountsRentedRoom(Long id);
+
+    String getCurrentUser();
+
+    ResponseEntity<String> addRoleAdmin(String username);
 
 
 }
